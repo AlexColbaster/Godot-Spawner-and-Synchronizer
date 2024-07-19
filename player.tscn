@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3xpevseawcw1"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_gm4wa"]
+[ext_resource type="Texture2D" uid="uid://bqeb4ujegso6c" path="res://icon.svg" id="1_x61am"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_dd55l"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_gm4wa")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_x61am")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_dd55l")
